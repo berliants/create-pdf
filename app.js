@@ -18,10 +18,10 @@ app.get('/', (request, response) => {
 app.post('/', (request, response) => {
     const nomor = 123
     response.render('template_pdf.ejs', {data: 'halo'}, (err, html) => {
-        pdf.create(html, options).toFile('./public/output/' + nomor + '.pdf', (err, result) => {
+        pdf.create(html, options).toFile('./public/output/saya.pdf', (err, result) => {
             if(err) console.log(err)
 
-            const datafile = fs.readFileSync('./public/output/' + nomor + '.pdf')
+            const datafile = fs.readFileSync('./public/output/saya.pdf')
             response.header('content-type', 'application/pdf')
             response.send(datafile)
         })
